@@ -28,7 +28,13 @@ public class ProductServiceImpl implements ProductService{
 
         LOGGER.info("******* Before publishing a Event *******");
 
-        SendResult<String , ProductCreatedEvent> result = kafkaTemplate.send("product-created-event-topic", productId , event).get();
+
+     //   SendResult<String , ProductCreatedEvent> result = kafkaTemplate.send("product-created-event-topic", productId , event).get();
+
+        // for synchronous call
+        SendResult<String , ProductCreatedEvent> result = kafkaTemplate.send("insync-topic", productId , event).get();
+
+
 //        CompletableFuture<SendResult<String , ProductCreatedEvent>> future = kafkaTemplate.send("product-created-event-topic", productId , event);
 //
 //        future.whenComplete((result, ex) ->{
