@@ -1,8 +1,8 @@
 package com.example.ms.ProductMicroservice.config;
 
-import com.example.ms.ProductMicroservice.services.ProductCreatedEvent;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
+import org.example.core.ProductCreatedEvent;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafkaConfig {
+public class KafkaProducerConfig {
     @Value("${spring.kafka.producer.bootstrap-servers}")
     private String bootstrapServers;
     @Value("${spring.kafka.producer.key-serializer}")
